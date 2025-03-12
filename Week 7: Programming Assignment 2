@@ -1,0 +1,17 @@
+def find_median(matrix, n, m):
+
+    flattened_matrix = []
+    for row in matrix:
+        flattened_matrix.extend(row)
+
+   
+    flattened_matrix.sort()
+
+    median_index = (n * m) // 2 
+    return flattened_matrix[median_index]
+
+n, m = map(int, input().split()) 
+matrix = [list(map(int, input().split())) for _ in range(n)] 
+
+median = find_median(matrix, n, m)
+print(median,end="")
