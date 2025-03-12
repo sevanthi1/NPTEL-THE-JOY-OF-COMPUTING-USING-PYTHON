@@ -1,0 +1,35 @@
+# Week 7: Programming Assignment 1
+def is_magic_square(matrix, n):
+
+    M = (n * (n**2 + 1)) // 2
+
+    for i in range(n):
+        if sum(matrix[i]) != M:
+            return "Not a Magic Matrix"
+    
+    for j in range(n):
+        column_sum = 0
+        for i in range(n):
+            column_sum += matrix[i][j]
+        if column_sum != M:
+            return "Not a Magic Matrix"
+    
+    diag1_sum = 0
+    for i in range(n):
+        diag1_sum += matrix[i][i]
+    if diag1_sum != M:
+        return "Not a Magic Matrix"
+
+    diag2_sum = 0
+    for i in range(n):
+        diag2_sum += matrix[i][n - 1 - i]
+    if diag2_sum != M:
+        return "Not a Magic Matrix"
+    
+    return "Magic Matrix"
+
+n = int(input()) 
+matrix = [list(map(int, input().split())) for _ in range(n)]
+
+result = is_magic_square(matrix, n)
+print(result,end="")
