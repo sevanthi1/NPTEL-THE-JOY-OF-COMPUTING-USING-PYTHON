@@ -1,0 +1,23 @@
+def rotate_image(matrix, m, n):
+  
+    transposed_matrix = [[matrix[i][j] for i in range(m)] for j in range(n)]
+    
+
+    for i in range(n):
+        transposed_matrix[i] = transposed_matrix[i][::-1]
+    
+    return transposed_matrix
+
+
+m, n = map(int, input().split()) 
+matrix = [list(map(int, input().split())) for _ in range(m)] 
+
+rotated_matrix = rotate_image(matrix, m, n)
+
+
+for i in range(n):
+
+    if i < n - 1:
+        print(" ".join(map(str, rotated_matrix[i]))) 
+    else:
+        print(" ".join(map(str, rotated_matrix[i])), end="")  
