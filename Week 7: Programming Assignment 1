@@ -1,8 +1,7 @@
-# Week 7: Programming Assignment 1
 def is_magic_square(matrix, n):
 
     M = (n * (n**2 + 1)) // 2
-
+    
     for i in range(n):
         if sum(matrix[i]) != M:
             return "Not a Magic Matrix"
